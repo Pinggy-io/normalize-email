@@ -36,23 +36,26 @@ To get started with EmailNormalizer, follow these instructions:
        <artifactId>normalize-email</artifactId>
        <version>0.0.1</version>
    </dependency>
+   ```
 
 ## Usage
 
 ### Basic Usage
 
 Here’s a quick example of how to use normalize-email:
-    
-    public class Main {
-        public static void main(String[] args) {
-            // Create an instance of EmailNormalizerImpl
-            EmailNormalizerImpl normalizer = new EmailNormalizerImpl();
-            
-            // Normalize an email address
-            String normalizedEmail = normalizer.normalize("example@gmail.com");
-            System.out.println("Normalized Email: " + normalizedEmail);
-        }
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of EmailNormalizerImpl
+        EmailNormalizerImpl normalizer = new EmailNormalizerImpl();
+        
+        // Normalize an email address
+        String normalizedEmail = normalizer.normalize("example@gmail.com");
+        System.out.println("Normalized Email: " + normalizedEmail);
     }
+}
+```
 
 
 ### Adding Custom Strategies
@@ -61,17 +64,18 @@ You can add custom normalization strategies by implementing the `EmailNormalizat
 
 **Implement the `EmailNormalizationStrategy` Interface**
 
-   Create a class that implements the `EmailNormalizationStrategy` interface and provides the logic for your custom normalization.
+Create a class that implements the `EmailNormalizationStrategy` interface and provides the logic for your custom normalization.
 
 
-    
-       public class CustomNormalizationStrategy implements NormalizationStrategy {
-           @Override
-           public String normalizeEmailString(String localPart, String domain) {
-               // Implement custom normalization logic here
-               return localPart + "@" +domain;
-           }
-       }
+```java
+public class CustomNormalizationStrategy implements NormalizationStrategy {
+    @Override
+    public String normalizeEmailString(String localPart, String domain) {
+        // Implement custom normalization logic here
+        return localPart + "@" +domain;
+    }
+}
+```
 
 ### License
 This project is licensed under the MIT License.
