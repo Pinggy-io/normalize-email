@@ -1,6 +1,6 @@
 # Normalize-Email Java Library
 
-Welcome to the **Normalize-Email** library! This Java library provides a 
+Welcome to the **normalize-email** library! This Java library provides a 
 straightforward way to normalize email addresses by applying various strategies 
 for popular email domains. It supports built-in strategies for Gmail, Outlook, Live, 
 and Hotmail, and also allows users to define and modify their own normalization 
@@ -33,7 +33,7 @@ To get started with EmailNormalizer, follow these instructions:
    ```xml
    <dependency>
        <groupId>com.example</groupId>
-       <artifactId>email-normalizer</artifactId>
+       <artifactId>normalize-email</artifactId>
        <version>0.0.1</version>
    </dependency>
 
@@ -41,7 +41,7 @@ To get started with EmailNormalizer, follow these instructions:
 
 ### Basic Usage
 
-Here’s a quick example of how to use EmailNormalizer:
+Here’s a quick example of how to use normalize-email:
     
     public class Main {
         public static void main(String[] args) {
@@ -77,4 +77,4 @@ You can add custom normalization strategies by implementing the `EmailNormalizat
 This project is licensed under the MIT License.
 
 ### Contact
-For questions or feedback, please contact us at contact@pinggy.io
+For questions or feedback open an issue, or, please contact us at contact@pinggy.io
