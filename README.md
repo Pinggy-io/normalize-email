@@ -1,6 +1,6 @@
 # Normalize-Email Java Library
 
-Welcome to the **normalize-email** library! This Java library provides a 
+Welcome to the **Normalize-Email** library! This Java library provides a 
 straightforward way to normalize email addresses by applying various strategies 
 for popular email domains. It supports built-in strategies for Gmail, Outlook, Live, 
 and Hotmail, and also allows users to define and modify their own normalization 
@@ -24,7 +24,7 @@ is applied.
 
 ## Getting Started
 
-To get started with EmailNormalizer, follow these instructions:
+To get started with Normalize-Email, follow these instructions:
 
 1. **Add the Dependency**
 
@@ -32,30 +32,27 @@ To get started with EmailNormalizer, follow these instructions:
 
    ```xml
    <dependency>
-       <groupId>com.example</groupId>
-       <artifactId>normalize-email</artifactId>
+       <groupId>io.pinggy</groupId>
+       <artifactId>email-normalizer</artifactId>
        <version>0.0.1</version>
    </dependency>
-   ```
 
 ## Usage
 
 ### Basic Usage
 
-Here’s a quick example of how to use normalize-email:
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        // Create an instance of EmailNormalizerImpl
-        EmailNormalizerImpl normalizer = new EmailNormalizerImpl();
-        
-        // Normalize an email address
-        String normalizedEmail = normalizer.normalize("example@gmail.com");
-        System.out.println("Normalized Email: " + normalizedEmail);
+Here’s a quick example of how to use EmailNormalizer:
+    
+    public class Main {
+        public static void main(String[] args) {
+            // Create an instance of EmailNormalizerImpl
+            EmailNormalizerImpl normalizer = new EmailNormalizerImpl();
+            
+            // Normalize an email address
+            String normalizedEmail = normalizer.normalize("example@gmail.com");
+            System.out.println("Normalized Email: " + normalizedEmail);
+        }
     }
-}
-```
 
 
 ### Adding Custom Strategies
@@ -64,21 +61,20 @@ You can add custom normalization strategies by implementing the `EmailNormalizat
 
 **Implement the `EmailNormalizationStrategy` Interface**
 
-Create a class that implements the `EmailNormalizationStrategy` interface and provides the logic for your custom normalization.
+   Create a class that implements the `EmailNormalizationStrategy` interface and provides the logic for your custom normalization.
 
 
-```java
-public class CustomNormalizationStrategy implements NormalizationStrategy {
-    @Override
-    public String normalizeEmailString(String localPart, String domain) {
-        // Implement custom normalization logic here
-        return localPart + "@" +domain;
-    }
-}
-```
+    
+       public class CustomNormalizationStrategy implements NormalizationStrategy {
+           @Override
+           public String normalizeEmailString(String localPart, String domain) {
+               // Implement custom normalization logic here
+               return localPart + "@" +domain;
+           }
+       }
 
 ### License
 This project is licensed under the MIT License.
 
 ### Contact
-For questions or feedback open an issue, or, please contact us at contact@pinggy.io
+For questions or feedback, please contact us at contact@pinggy.io
