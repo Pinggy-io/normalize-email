@@ -1,4 +1,4 @@
-name: Test Workflow
+name: Build and run tests workflow
 
 on:
   push:
@@ -9,11 +9,17 @@ on:
       - main
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run a simple script
-        run: echo "Workflow is running!"
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      - name: clean, build and run unit tests
+        run: mvn clean test
