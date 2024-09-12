@@ -1,0 +1,28 @@
+name: Build and run tests workflow
+
+on:
+  push:
+    branches:
+      - github-action
+  pull_request:
+    branches:
+      - github-action
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - run: mvn --version
+      - run: which mvn
+      - run: which java
+      - name: clean, build and run unit tests
+        run: mvn clean test
