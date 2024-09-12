@@ -3,10 +3,10 @@ name: Build and run tests workflow
 on:
   push:
     branches:
-      - main
+      - github-action
   pull_request:
     branches:
-      - main
+      - github-action
 
 jobs:
   build:
@@ -14,13 +14,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-
+      - run: mvn --version
+      - run: which mvn
+      - run: which java
       - name: clean, build and run unit tests
         run: mvn clean test
