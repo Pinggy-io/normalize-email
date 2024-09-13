@@ -4,7 +4,7 @@
     <groupId>io.pinggy.open</groupId>
     <artifactId>normalize-email</artifactId>
     <packaging>jar</packaging>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 
 
     <name>normalize-email</name>
