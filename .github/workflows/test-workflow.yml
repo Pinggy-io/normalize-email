@@ -16,13 +16,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install latest Maven
+        run: |
+            MAVEN_VERSION=3.9.9
+            wget https://downloads.apache.org/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz
+            tar xzvf apache-maven-$MAVEN_VERSION-bin.tar.gz
+            sudo mv apache-maven-$MAVEN_VERSION /opt/maven
+            sudo rm -f /usr/bin/mvn  # Remove existing symbolic link if it exists
+            sudo ln -s /opt/maven/bin/mvn /usr/bin/mvn  # Create new symbolic link
+
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: '17'
-          distribution: 'temurin'
+            java-version: '17'
+            distribution: 'temurin'
       - run: mvn --version
       - run: which mvn
       - run: which java
+
       - name: clean, build and run unit tests
         run: mvn clean test
